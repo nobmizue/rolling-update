@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: update-demo-poke1
+spec:
+  selector:
+    name: update-demo
+    version: poke1
+  template:
+    metadata:
+      labels:
+        name: update-demo
+        version: poke1
+    spec:
+      containers:
+      - image: gcr.io/mizueplayground/update-demo:poke1
+        name: update-demo
+        ports:
+        - containerPort: 80
+          protocol: TCP

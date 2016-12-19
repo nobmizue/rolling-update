@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: update-demo-poke1
+spec:
+  template:
+    metadata:
+      labels:
+        name: update-demo
+        version: poke1
+    spec:
+      containers:
+      - name: update-demo
+        image: gcr.io/mizueproject/update-demo:poke1
+        ports:
+        - containerPort: 80
+          protocol: TCP
